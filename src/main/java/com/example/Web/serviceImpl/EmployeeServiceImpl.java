@@ -69,30 +69,31 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
     }
 
-    @Override
-    public List<EmployeeEntity> findProductsWithSorting(String field){
-        return  employeeRepo.findAll(Sort.by(Sort.Direction.ASC,field));
-    }
+//    @Override
+//    public List<EmployeeEntity> findProductsWithSorting(String field){
+//        return  employeeRepo.findAll(Sort.by(Sort.Direction.ASC,field));
+//    }
 
-    @Override
-    public Page<EmployeeResponse> findProductsWithPagination(int offset, int pageSize) {
-        Pageable pageable = PageRequest.of(offset, pageSize);
-        Page<EmployeeEntity> employees = employeeRepo.findAll(pageable);
-        List<EmployeeResponse> employeeResponses = employees.getContent().stream()
-                .map(this::mapToEmployeeResponse)
-                .collect(Collectors.toList());
-        return new PageImpl<>(employeeResponses, pageable, employees.getTotalElements());
-    }
+//    @Override
+//    public Page<EmployeeResponse> findProductsWithPagination(int offset, int pageSize) {
+//        Pageable pageable = PageRequest.of(offset, pageSize);
+//        Page<EmployeeEntity> employees = employeeRepo.findAll(pageable);
+//        List<EmployeeResponse> employeeResponses = employees.getContent().stream()
+//                .map(this::mapToEmployeeResponse)
+//                .collect(Collectors.toList());
+//        return new PageImpl<>(employeeResponses, pageable, employees.getTotalElements());
+//    }
 
 
-    public Page<EmployeeResponse> findProductsWithPaginationAndSorting(int offset, int pageSize, String field) {
-        Pageable pageable = PageRequest.of(offset, pageSize).withSort(Sort.by(field));
-        Page<EmployeeEntity> employees = employeeRepo.findAll(pageable);
-        List<EmployeeResponse> employeeResponses = employees.getContent().stream()
-                .map(this::mapToEmployeeResponse)
-                .collect(Collectors.toList());
-        return new PageImpl<>(employeeResponses, pageable, employees.getTotalElements());
-    }
+//    public Page<EmployeeResponse> findProductsWithPaginationAndSorting(int offset, int pageSize, String field) {
+//        Pageable pageable = PageRequest.of(offset, pageSize).withSort(Sort.by(field));
+//        Page<EmployeeEntity> employees = employeeRepo.findAll(pageable);
+//        List<EmployeeResponse> employeeResponses = employees.getContent().stream()
+//                .map(this::mapToEmployeeResponse)
+//                .collect(Collectors.toList());
+//        return new PageImpl<>(employeeResponses, pageable, employees.getTotalElements());
+//    }
+
 
 
 }

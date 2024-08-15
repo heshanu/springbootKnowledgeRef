@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.engine.internal.Cascade;
+
+import java.util.List;
 
 @Entity
 @Table(name = "employee")
@@ -15,6 +18,7 @@ public class EmployeeEntity {
     private float Id;
     private String empName;
     private String empAddress;
+    private String empTelePhone;
 
     public EmployeeEntity(String empName, String empAddress, String empTelePhone) {
         this.empName = empName;
@@ -22,5 +26,4 @@ public class EmployeeEntity {
         this.empTelePhone = empTelePhone;
     }
 
-    private String empTelePhone;
 }

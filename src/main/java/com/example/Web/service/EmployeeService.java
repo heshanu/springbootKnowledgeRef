@@ -15,18 +15,18 @@ public interface EmployeeService{
 
     void deleteById(Long id);
 
-    public List<EmployeeEntity> findProductsWithSorting(String field);
+   // public List<EmployeeEntity> findProductsWithSorting(String field);
 
-    public Page<EmployeeResponse> findProductsWithPagination(int offset, int pageSize);
+ //   public Page<EmployeeResponse> findProductsWithPagination(int offset, int pageSize);
 
-    public Page<EmployeeResponse> findProductsWithPaginationAndSorting(int offset,int pageSize,String field);
+   // public Page<EmployeeResponse> findProductsWithPaginationAndSorting(int offset,int pageSize,String field);
 
     //query
-    public List<EmployeeResponse> getEmployeeData();
+  //  public List<EmployeeResponse> getEmployeeData();
 
-    public List<EmployeeResponse> findEmployeesByDesignationAndActiveData(Boolean activeState, List<String> designationList);
+  //  public List<EmployeeResponse> findEmployeesByDesignationAndActiveData(Boolean activeState, List<String> designationList);
 
 
-    public int updateEmployeeState(Boolean activeState, List<Long> empIdList);
+ //   public int updateEmployeeState(Boolean activeState, List<Long> empIdList);
 
 }

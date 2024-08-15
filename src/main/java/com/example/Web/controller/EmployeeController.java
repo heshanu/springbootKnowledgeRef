@@ -50,53 +50,53 @@ public class EmployeeController {
     };
 
     //Pagination
-    @GetMapping
-    private APIResponse<List<EmployeeResponse>> getProducts() {
-        List<EmployeeResponse> allProducts = employeeService.getAllEmployee();
-        return new APIResponse<>(allProducts.size(), allProducts);
-    }
+//    @GetMapping
+//    private APIResponse<List<EmployeeResponse>> getProducts() {
+//        List<EmployeeResponse> allProducts = employeeService.getAllEmployee();
+//        return new APIResponse<>(allProducts.size(), allProducts);
+//    }
 
-    @GetMapping("/{field}")
-    public ResponseEntity<APIResponse<List<EmployeeResponse>>> getProductsWithSort(@PathVariable String field) {
-        List<EmployeeEntity> allEmployees = employeeService.findProductsWithSorting(field);
-        List<EmployeeResponse> employeeResponses = allEmployees.stream()
-                .map(this::mapToEmployeeResponse)
-                .collect(Collectors.toList());
-        APIResponse<List<EmployeeResponse>> response = new APIResponse<>(employeeResponses.size(), employeeResponses);
-        return ResponseEntity.ok(response);
-    }
+//    @GetMapping("/{field}")
+//    public ResponseEntity<APIResponse<List<EmployeeResponse>>> getProductsWithSort(@PathVariable String field) {
+//        List<EmployeeEntity> allEmployees = employeeService.findProductsWithSorting(field);
+//        List<EmployeeResponse> employeeResponses = allEmployees.stream()
+//                .map(this::mapToEmployeeResponse)
+//                .collect(Collectors.toList());
+//        APIResponse<List<EmployeeResponse>> response = new APIResponse<>(employeeResponses.size(), employeeResponses);
+//        return ResponseEntity.ok(response);
+//    }
 
     private EmployeeResponse mapToEmployeeResponse(EmployeeEntity employee) {
         return new EmployeeResponse(employee.getEmpName() , employee.getEmpAddress(),employee.getEmpTelePhone());
     }
 
-    @GetMapping("/pagination/{offset}/{pageSize}")
-    private APIResponse<Page<EmployeeResponse>> getProductsWithPagination(@PathVariable int offset, @PathVariable int pageSize) {
-        Page<EmployeeResponse> productsWithPagination = employeeService.findProductsWithPagination(offset, pageSize);
-        return new APIResponse<>(productsWithPagination.getSize(), productsWithPagination);
-    }
-
-    @GetMapping("/paginationAndSort/{offset}/{pageSize}/{field}")
-    private APIResponse<Page<EmployeeResponse>> getProductsWithPaginationAndSort(@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) {
-        Page<EmployeeResponse> productsWithPagination = employeeService.findProductsWithPaginationAndSorting(offset, pageSize, field);
-        return new APIResponse<>(productsWithPagination.getSize(), productsWithPagination);
-    }
+//    @GetMapping("/pagination/{offset}/{pageSize}")
+//    private APIResponse<Page<EmployeeResponse>> getProductsWithPagination(@PathVariable int offset, @PathVariable int pageSize) {
+//        Page<EmployeeResponse> productsWithPagination = employeeService.findProductsWithPagination(offset, pageSize);
+//        return new APIResponse<>(productsWithPagination.getSize(), productsWithPagination);
+//    }
+//
+//    @GetMapping("/paginationAndSort/{offset}/{pageSize}/{field}")
+//    private APIResponse<Page<EmployeeResponse>> getProductsWithPaginationAndSort(@PathVariable int offset, @PathVariable int pageSize,@PathVariable String field) {
+//        Page<EmployeeResponse> productsWithPagination = employeeService.findProductsWithPaginationAndSorting(offset, pageSize, field);
+//        return new APIResponse<>(productsWithPagination.getSize(), productsWithPagination);
+//    }
 
     //query
-    @GetMapping("/getEmployees")
-    public List<EmployeeResponse> getEmployees(){
-        return employeeService.getEmployeeData();
-    }
+//    @GetMapping("/getEmployees")
+//    public List<EmployeeResponse> getEmployees(){
+//        return employeeService.getEmployeeData();
+//    }
+//
+//    @GetMapping("/findEmployeesByDesignationAndActiveData/{activeState}/{designationList}")
+//    public List<EmployeeResponse> findEmployeesByDesignationAndActiveData(@PathVariable Boolean activeState,
+//                                                                  @PathVariable List<String> designationList){
+//        return  employeeService.findEmployeesByDesignationAndActiveData(activeState,designationList);
+//    }
 
-    @GetMapping("/findEmployeesByDesignationAndActiveData/{activeState}/{designationList}")
-    public List<EmployeeResponse> findEmployeesByDesignationAndActiveData(@PathVariable Boolean activeState,
-                                                                  @PathVariable List<String> designationList){
-        return  employeeService.findEmployeesByDesignationAndActiveData(activeState,designationList);
-    }
-
-    @PutMapping("/updateEmployeeState/{activeState}/{empIdList}")
-    public int updateEmployeeState(@PathVariable Boolean activeState,
-                                   @PathVariable List<Long> empIdList) {
-        return employeeService.updateEmployeeState(activeState, empIdList);
-    }
+//    @PutMapping("/updateEmployeeState/{activeState}/{empIdList}")
+//    public int updateEmployeeState(@PathVariable Boolean activeState,
+//                                   @PathVariable List<Long> empIdList) {
+//        return employeeService.updateEmployeeState(activeState, empIdList);
+//    }
 }
